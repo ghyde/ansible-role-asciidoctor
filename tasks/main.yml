@@ -1,0 +1,6 @@
+---
+- block:
+  - import_tasks: install.yml
+  tags:
+  - asciidoctor
+...

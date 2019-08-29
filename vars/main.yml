@@ -1,0 +1,6 @@
+---
+asciidoctor_valid_highlighters:
+  - rouge
+  - pygments.rb
+  - coderay
+...

@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  role_name: asciidoctor
+  author: Garrett Hyde
+  description: Install asciidoctor on Fedora
+  issue_tracker_url: https://github.com/ghyde/ansible-role-asciidoctor/issues
+  license: MIT
+  min_ansible_version: 2.5
+  platforms:
+  - name: Fedora
+    versions:
+    - 28
+    - 29
+    - 30
+  galaxy_tags:
+  - fedora
+  - asciidoc
+  - asciidoctor
+...

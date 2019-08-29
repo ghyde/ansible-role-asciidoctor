@@ -1,0 +1,4 @@
+---
+asciidoctor_install_pdf_package: True
+asciidoctor_syntax_highlighter: rouge
+...

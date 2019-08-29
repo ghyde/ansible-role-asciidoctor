@@ -1,0 +1,41 @@
+---
+- name: install Ruby
+  dnf:
+    name:
+      - ruby
+      - rubygems
+    state: present
+  become: True
+  become_user: root
+- name: install asciidoctor
+  gem:
+    name: asciidoctor
+    state: present
+    user_install: True
+- name: install asciidoctor-pdf
+  gem:
+    name: asciidoctor-pdf
+    state: present
+    pre_release: True
+    user_install: True
+  when:
+    - asciidoctor_install_pdf_package is defined
+    - asciidoctor_install_pdf_package | bool
+- name: install syntax highlighter "{{ asciidoctor_syntax_highlighter }}"
+  gem:
+    name: "{{ asciidoctor_syntax_highlighter }}"
+    state: present
+    user_install: True
+  when:
+    - asciidoctor_syntax_highlighter is defined
+    - asciidoctor_syntax_highlighter != ""
+    - asciidoctor_syntax_highlighter in asciidoctor_valid_highlighters
+- name: install pygments
+  pip:
+    name: pygments
+    extra_args: "--user"
+    executable: /usr/bin/pip3
+  when:
+    - asciidoctor_syntax_highlighter is defined
+    - asciidoctor_syntax_highlighter == "pygments.rb"
+...
