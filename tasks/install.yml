@@ -28,7 +28,6 @@
     user_install: True
   when:
     - asciidoctor_syntax_highlighter is defined
-    - asciidoctor_syntax_highlighter != ""
     - asciidoctor_syntax_highlighter in asciidoctor_valid_highlighters
 - name: install pygments
   pip:
